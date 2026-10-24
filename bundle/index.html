@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocuMind AI</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17243b;
+      --muted: #66758c;
+      --line: #e3e9f2;
+      --accent: #5b5ce2;
+      --surface: #ffffff;
+      --bg: #f5f7fc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 14px;
+    }
+    .shell { max-width: 960px; margin: auto; padding: 24px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; margin-bottom: 30px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo {
+      display: grid; place-items: center; width: 42px; height: 42px;
+      border-radius: 13px; color: white; font-weight: 800; font-size: 19px;
+      background: linear-gradient(135deg, #6767ed, #4445b7);
+    }
+    h1 { font-size: 20px; margin: 0 0 4px; letter-spacing: -.5px; }
+    .subtitle { color: var(--muted); font-size: 12px; }
+    .privacy {
+      border: 1px solid #dcebe5; color: #26785a; background: #f0faf5;
+      border-radius: 20px; padding: 8px 12px; font-size: 11px;
+      white-space: nowrap;
+    }
+    .hero { margin-bottom: 22px; }
+    .eyebrow {
+      color: var(--accent); font-size: 11px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;
+    }
+    h2 { font-size: clamp(25px, 4vw, 34px); letter-spacing: -1px; margin: 0 0 10px; }
+    .hero p { color: var(--muted); line-height: 1.65; max-width: 620px; margin: 0; }
+    .workspace {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 18px; padding: 22px;
+      box-shadow: 0 8px 28px rgba(30, 48, 85, .045);
+    }
+    .section-title { font-size: 15px; font-weight: 750; margin-bottom: 7px; }
+    .helper { color: var(--muted); font-size: 12px; line-height: 1.6; }
+    textarea {
+      width: 100%; min-height: 190px; resize: vertical; margin-top: 15px;
+      padding: 15px; border: 1px solid #dbe2ee; border-radius: 12px;
+      background: #fbfcff; color: var(--ink); font: inherit;
+      line-height: 1.65; outline: none;
+    }
+    textarea:focus { border-color: #8585ef; box-shadow: 0 0 0 3px #eeeeff; }
+    .actions {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap; margin-top: 15px;
+    }
+    .btn {
+      border: 0; border-radius: 10px; padding: 12px 18px; cursor: pointer;
+      font-weight: 700; font-size: 13px;
+    }
+    .primary { background: var(--accent); color: white; }
+    .primary:hover { background: #4849c9; }
+    .primary:disabled { opacity: .55; cursor: wait; }
+    .secondary { background: #f0f2f9; color: #4d5a71; }
+    #status { color: var(--muted); font-size: 12px; }
+    .note { margin-top: 14px; font-size: 11px; color: #78869b; line-height: 1.6; }
+    #results { display: none; margin-top: 22px; }
+    .result-head { margin-bottom: 15px; }
+    .result-card {
+      background: white; border: 1px solid var(--line); border-radius: 14px;
+      padding: 18px; margin-top: 12px; overflow-wrap: anywhere;
+    }
+    .result-card h3 { margin: 0 0 12px; font-size: 14px; }
+    .result-card p { line-height: 1.7; margin: 0; white-space: pre-wrap; }
+    .result-card ul { padding-left: 20px; margin: 0; }
+    .result-card li { margin: 9px 0; line-height: 1.65; }
+    .tag {
+      display: inline-block; background: #f0f0ff; color: #4d4ec3;
+      padding: 4px 8px; border-radius: 6px; font-size: 10px;
+      font-weight: 750; text-transform: uppercase;
+    }
+    .risk { border-left: 3px solid #e9a23b; }
+    .risk.high { border-left-color: #df5d65; }
+    .risk.low { border-left-color: #42a786; }
+    .evidence { color: var(--muted); font-size: 12px; margin-top: 8px !important; }
+    .error { color: #b42335 !important; }
+    footer { color: #8792a5; font-size: 11px; text-align: center; padding: 24px 0 8px; }
+    @media (max-width: 600px) {
+      .shell { padding: 16px; }
+      header { align-items: flex-start; }
+      .privacy { white-space: normal; max-width: 135px; line-height: 1.5; }
+      .workspace { padding: 16px; }
+      .actions .primary { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand">
+        <div class="logo">D</div>
+        <div>
+          <h1>DocuMind AI</h1>
+          <div class="subtitle">DOCUMENT INTELLIGENCE</div>
+        </div>
+      </div>
+      <div class="privacy">● Privacy-first workflow</div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Understand · Review · Decide</div>
+      <h2>Make every document clearer.</h2>
+      <p>Turn complex agreements into clear summaries, identify clauses that may deserve attention, and prepare better questions before you sign.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="section-title">Analyze a document</div>
+      <div class="helper">Paste contract text below to get a structured AI review. Start with a clause or use a longer text.</div>
+      <div class="upload-panel" style="margin: 16px 0; padding: 16px; border: 1px dashed #9ca3af; border-radius: 12px;">
+        <label for="uploadInput" style="display:block; font-weight:600; margin-bottom:8px;">Upload a document</label>
+        <input id="uploadInput" type="file" accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" style="display:block; max-width:100%; margin-bottom:8px;" />
+        <div style="font-size:13px; opacity:.8;">Supported formats: PDF, Word (.docx), and TXT · Maximum file size: 15 MB</div>
+        <div id="uploadName" style="font-size:13px; margin-top:8px;"></div>
+      </div>
+      <textarea id="documentText" aria-label="Document text" placeholder="Paste your agreement or contract text here..."></textarea>
+      <div class="actions">
+        <span id="status" role="status">Ready when you are.</span>
+        <div>
+          <button class="btn secondary" id="clearBtn" type="button">Clear</button>
+          <button class="btn primary" id="analyzeBtn" type="button">✦ Analyze document</button>
+        </div>
+      </div>
+      <div class="note">For informational support only, not legal advice. Avoid pasting confidential or personally identifying information unless you are comfortable sharing it with the AI service.</div>
+    </section>
+
+    <section id="results" aria-live="polite">
+      <div class="result-head">
+        <div class="eyebrow">Your analysis</div>
+        <h2 style="font-size:24px">Document insights</h2>
+      </div>
+      <div id="resultContent"></div>
+    </section>
+
+    <footer>DocuMind AI · AI-assisted document understanding · Always verify important decisions with a qualified professional.</footer>
+  </main>
+  <script src="./vendor/mammoth/mammoth.browser.min.js"></script>
+  <script src="./app.js" type="module"></script>
+</body>
+</html>

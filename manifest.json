@@ -1,0 +1,64 @@
+{
+    "schema":  2,
+    "required_executas":  [
+                              {
+                                  "tool_id":  "tool-dev-documind-ai"
+                              }
+                          ],
+    "tags":  [
+                 "documind-ai"
+             ],
+    "ui":  {
+               "bundle":  {
+                              "format":  "static-spa",
+                              "entry":  "index.html",
+                              "external_origins":  [
+
+                                                   ]
+                          },
+               "views":  [
+                             {
+                                 "name":  "main",
+                                 "title":  "documind-ai",
+                                 "default":  true,
+                                 "default_size":  {
+                                                      "w":  1000,
+                                                      "h":  800
+                                                  },
+                                 "min_size":  {
+                                                  "w":  700,
+                                                  "h":  550
+                                              }
+                             }
+                         ],
+               "host_api":  {
+                                "tools":  [
+                                              "tool-dev-documind-ai"
+                                          ],
+                                "storage":  [
+                                                "get",
+                                                "set"
+                                            ],
+                                "window":  [
+                                               "set_title",
+                                               "ready"
+                                           ],
+                                "llm":  [
+                                            "complete"
+                                        ]
+                            },
+               "csp_overrides":  {
+
+                                 },
+               "state_merge":  "last_writer_wins"
+           },
+    "dev":  {
+                "fixtures":  [
+                                 "fixtures/*.jsonl"
+                             ],
+                "seed_storage":  {
+
+                                 },
+                "user_id":  1
+            }
+}

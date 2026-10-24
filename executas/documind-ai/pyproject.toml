@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tool-dev-documind-ai"
+version = "0.1.0"
+description = "Executa for the documind-ai Anna App"
+requires-python = ">=3.10"
+
+[project.scripts]
+"tool-dev-documind-ai" = "documind_ai_plugin:main"
+
+[tool.setuptools]
+py-modules = ["documind_ai_plugin"]

@@ -1,0 +1,29 @@
+﻿.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.pyc
+*.zip
+.DS_Store
+
+# Local safety backups
+backup-before-*/
+
+# Local Anna configuration
+.anna/
+
+# Python virtual environments and generated files
+**/.venv/
+**/venv/
+**/__pycache__/
+**/*.py[cod]
+**/*.egg-info/
+
+# Local safety backups
+backup-before-*/
+
+# Duplicate vendor copies; app uses nested vendor paths
+/bundle/vendor/mammoth.browser.min.js
+/bundle/vendor/pdf.min.js
+/bundle/vendor/pdf.worker.min.js
