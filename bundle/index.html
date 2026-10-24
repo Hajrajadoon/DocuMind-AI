@@ -115,11 +115,11 @@
           <div class="subtitle">DOCUMENT INTELLIGENCE</div>
         </div>
       </div>
-      <div class="privacy">● Privacy-first workflow</div>
+      <div class="privacy">â— Privacy-first workflow</div>
     </header>
 
     <section class="hero">
-      <div class="eyebrow">Understand · Review · Decide</div>
+      <div class="eyebrow">Understand Â· Review Â· Decide</div>
       <h2>Make every document clearer.</h2>
       <p>Turn complex agreements into clear summaries, identify clauses that may deserve attention, and prepare better questions before you sign.</p>
     </section>
@@ -130,7 +130,7 @@
       <div class="upload-panel" style="margin: 16px 0; padding: 16px; border: 1px dashed #9ca3af; border-radius: 12px;">
         <label for="uploadInput" style="display:block; font-weight:600; margin-bottom:8px;">Upload a document</label>
         <input id="uploadInput" type="file" accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" style="display:block; max-width:100%; margin-bottom:8px;" />
-        <div style="font-size:13px; opacity:.8;">Supported formats: PDF, Word (.docx), and TXT · Maximum file size: 15 MB</div>
+        <div style="font-size:13px; opacity:.8;">Supported formats: PDF, Word (.docx), and TXT Â· Maximum file size: 15 MB</div>
         <div id="uploadName" style="font-size:13px; margin-top:8px;"></div>
       </div>
       <textarea id="documentText" aria-label="Document text" placeholder="Paste your agreement or contract text here..."></textarea>
@@ -138,7 +138,7 @@
         <span id="status" role="status">Ready when you are.</span>
         <div>
           <button class="btn secondary" id="clearBtn" type="button">Clear</button>
-          <button class="btn primary" id="analyzeBtn" type="button">✦ Analyze document</button>
+          <button class="btn primary" id="analyzeBtn" type="button">âœ¦ Analyze document</button>
         </div>
       </div>
       <div class="note">For informational support only, not legal advice. Avoid pasting confidential or personally identifying information unless you are comfortable sharing it with the AI service.</div>
@@ -152,7 +152,14 @@
       <div id="resultContent"></div>
     </section>
 
-    <footer>DocuMind AI · AI-assisted document understanding · Always verify important decisions with a qualified professional.</footer>
+    <section id="savedReportsSection" class="workspace" style="margin-top:22px;">
+      <div class="section-title">Saved Reports</div>
+      <div class="helper">Your saved document reviews will appear here.</div>
+      <div id="savedReports" aria-live="polite">
+        <p class="note">No saved reports yet.</p>
+      </div>
+    </section>
+    <footer>DocuMind AI Â· AI-assisted document understanding Â· Always verify important decisions with a qualified professional.</footer>
   </main>
   <script src="./vendor/mammoth/mammoth.browser.min.js"></script>
   <script src="./app.js" type="module"></script>
