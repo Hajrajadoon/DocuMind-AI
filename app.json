@@ -1,6 +1,7 @@
 {
   "name": "documind-ai",
-  "tagline": "TODO",
-  "description": "TODO",
+  "slug": "documind-ai",
+  "tagline": "Make every document clearer.",
+  "description": "Analyze documents with AI to summarize key facts, obligations, and potential risks, and export clear PDF reports.",
   "category": "productivity"
 }

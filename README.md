@@ -1,4 +1,4 @@
- <div align="center">
+<div align="center">
 
 
 <br />
@@ -20,7 +20,7 @@
 
 <br />
 
-**Understand · Review · Save · Export**
+**Understand Â· Review Â· Save Â· Export**
 
 </div>
 
@@ -59,10 +59,10 @@ The application provides a document analysis workflow through the Anna App platf
 
 ### The core workflow
 
-1. **Understand** — Upload a document or paste text to request an AI-generated analysis.
-2. **Review** — Examine the summary, important facts, obligations, potential risks, action items, and suggested questions.
-3. **Save** — Keep useful reports available for later review.
-4. **Export** — Generate a PDF report for reference or sharing.
+1. **Understand** â€” Upload a document or paste text to request an AI-generated analysis.
+2. **Review** â€” Examine the summary, important facts, obligations, potential risks, action items, and suggested questions.
+3. **Save** â€” Keep useful reports available for later review.
+4. **Export** â€” Generate a PDF report for reference or sharing.
 
 ### Designed for clarity
 
@@ -364,8 +364,8 @@ DocuMind-AI/
 +-- manifest.json
 +-- README.md
 +-- bundle/
-¦   +-- app.js
-¦   +-- index.html
+|   +-- app.js
+|   +-- index.html
 +-- assets/
 +-- executas/
     +-- documind-ai/
@@ -378,12 +378,12 @@ The logo path above is the intended location; the image must be added to that fo
 
 ### Important files
 
-- `app.json` — Application metadata.
-- `manifest.json` — Application manifest and platform configuration.
-- `bundle/app.js` — Main application logic.
-- `bundle/index.html` — Application HTML entry point.
-- `executas/documind-ai/documind_ai_plugin.py` — Python tool scaffold.
-- `README.md` — Project documentation.
+- `app.json` â€” Application metadata.
+- `manifest.json` â€” Application manifest and platform configuration.
+- `bundle/app.js` â€” Main application logic.
+- `bundle/index.html` â€” Application HTML entry point.
+- `executas/documind-ai/documind_ai_plugin.py` â€” Python tool scaffold.
+- `README.md` â€” Project documentation.
 
 Avoid committing local credentials, authentication files, unnecessary backups, or private document samples.
 
