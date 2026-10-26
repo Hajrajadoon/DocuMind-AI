@@ -1,10 +1,5 @@
 {
     "schema":  2,
-    "required_executas":  [
-                              {
-                                  "tool_id":  "tool-dev-documind-ai"
-                              }
-                          ],
     "tags":  [
                  "documind-ai"
              ],
@@ -33,7 +28,7 @@
                          ],
                "host_api":  {
                                 "tools":  [
-                                              "tool-dev-documind-ai"
+
                                           ],
                                 "storage":  [
                                                 "get",

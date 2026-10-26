@@ -1,4 +1,4 @@
-import { AnnaAppRuntime } from "/static/anna-apps/_sdk/latest/index.js";
+﻿import { AnnaAppRuntime } from "/static/anna-apps/_sdk/latest/index.js";
 import * as pdfjsLib from "./vendor/pdfjs/pdf.min.mjs";
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL("./vendor/pdfjs/pdf.worker.min.mjs", import.meta.url).toString();
 
@@ -566,7 +566,7 @@ function renderAnalysis(data) {
     <p>${escapeHtml(item.obligation || "No details provided.")}</p>
     ${
       item.evidence
-        ? `<p class="evidence">Evidence: â€œ${escapeHtml(item.evidence)}â€</p>`
+        ? `<p class="evidence">Evidence: \u201c${escapeHtml(item.evidence)}\u201d</p>`
         : ""
     }
   `);
@@ -591,7 +591,7 @@ function renderAnalysis(data) {
         <p>${escapeHtml(item.explanation || "No explanation provided.")}</p>
         ${
           item.evidence
-            ? `<p class="evidence">Evidence: â€œ${escapeHtml(item.evidence)}â€</p>`
+            ? `<p class="evidence">Evidence: \u201c${escapeHtml(item.evidence)}\u201d</p>`
             : ""
         }
         ${
@@ -790,7 +790,7 @@ async function main() {
       }
 
       try {
-        setStatus("Reading " + file.name + "â€¦");
+        setStatus("Reading " + file.name + "\u2026");
         if (uploadName) uploadName.textContent = "Reading: " + file.name;
 
         let extractedText = "";
@@ -829,7 +829,7 @@ async function main() {
 
         input.value = extractedText.trim();
         if (uploadName) {
-          uploadName.textContent = "Loaded: " + file.name + " Â· " +
+          uploadName.textContent = "Loaded: " + file.name + " \u00b7 " +
             extractedText.trim().length.toLocaleString() + " characters";
         }
         setStatus("Document loaded. You can review the text, then click Analyze document.");
@@ -876,7 +876,7 @@ async function main() {
     }
 
     analyzeBtn.disabled = true;
-    setStatus("Analyzing your document with Anna AIâ€¦");
+    setStatus("Analyzing your document with Anna AI\u2026");
 
     try {
       const documentFingerprint = await fingerprintText(documentText);
