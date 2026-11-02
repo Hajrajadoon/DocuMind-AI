@@ -330,18 +330,19 @@ function renderGeneralHtml(data) {
       : "";
 
   return `
+    <article class="result-card" style="background:#f7f8ff">
+      <span class="tag">General document summary</span>
+      <p class="helper" style="margin:10px 0 0">
+        This text does not look like a contract or legal agreement, so DocuMind AI prepared
+        a general summary instead of a contract risk analysis.
+      </p>
+    </article>
     <article class="result-card">
       <span class="tag">${escapeHtml(data.document_type || "General text")}</span>
       <h3 style="margin-top:12px">Summary</h3>
       <p>${escapeHtml(data.summary || "No summary was provided by the AI.")}</p>
     </article>
 
-    <article class="result-card" style="background:#f7f8ff">
-      <p class="helper" style="margin:0">
-        <strong>Not a contract:</strong> this text does not look like a contract or legal
-        agreement, so DocuMind AI prepared a general summary instead of a legal review.
-      </p>
-    </article>
 
     ${section("Key facts", data.key_facts, (item) => escapeHtml(item))}
     ${section("Main points", data.main_points, (item) => `
@@ -544,7 +545,7 @@ function exportCurrentReport() {
     };
 
     if (data.analysis_mode === "general") {
-      add("Note: this text is not a contract or legal agreement, so a general summary was prepared.");
+      add("Report type: General document summary (not a contract risk analysis).");
       list("Key facts", data.key_facts, item => item);
       list("Main points", data.main_points, item =>
         (item.title || "Point") + ": " + (item.explanation || "") +
@@ -738,6 +739,13 @@ function renderAnalysis(data) {
   );
 
   const legalHtml = `
+    <article class="result-card" style="background:#f7f8ff">
+      <span class="tag">Contract risk analysis</span>
+      <p class="helper" style="margin:10px 0 0">
+        This document was identified as a contract or legal agreement, so DocuMind AI
+        reviewed its clauses, obligations and potential risks.
+      </p>
+    </article>
     <article class="result-card">
       <span class="tag">${escapeHtml(data.document_type || "Document review")}</span>
       <h3 style="margin-top:12px">Plain-language summary</h3>
