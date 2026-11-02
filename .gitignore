@@ -27,3 +27,5 @@ backup-before-*/
 /bundle/vendor/mammoth.browser.min.js
 /bundle/vendor/pdf.min.js
 /bundle/vendor/pdf.worker.min.js
+*.bak
+*.repair-backup.json
