@@ -22,7 +22,7 @@
       color: var(--ink);
       font-size: 14px;
     }
-    .shell { max-width: 960px; margin: auto; padding: 24px; }
+    .shell { max-width: 1240px; margin: auto; padding: 24px; }
     header {
       display: flex; align-items: center; justify-content: space-between;
       gap: 14px; margin-bottom: 30px;
@@ -96,6 +96,75 @@
     .evidence { color: var(--muted); font-size: 12px; margin-top: 8px !important; }
     .error { color: #b42335 !important; }
     footer { color: #8792a5; font-size: 11px; text-align: center; padding: 24px 0 8px; }
+
+    /* Review workspace: findings on the left, linked source document on the right */
+    .review-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 18px; align-items: start; }
+    .review-grid.no-source { grid-template-columns: minmax(0, 1fr); }
+    .source-panel {
+      position: sticky; top: 12px; margin-top: 12px; padding: 14px;
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      display: flex; flex-direction: column; max-height: calc(100vh - 24px);
+      box-shadow: 0 8px 28px rgba(30, 48, 85, .045);
+    }
+    .source-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+    .tabs { display: flex; gap: 6px; }
+    .tab {
+      border: 1px solid var(--line); background: #f5f7fc; color: #4d5a71;
+      border-radius: 8px; padding: 6px 11px; font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+    .tab.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .source-body {
+      position: relative; overflow: auto; flex: 1; min-height: 220px; max-height: 68vh;
+      white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.7; font-size: 13px;
+      border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: #fbfcff;
+    }
+    mark.m { cursor: pointer; border-radius: 3px; padding: 1px 0; color: inherit; background: #fff3c4; }
+    mark.m-risk-high { background: #ffd9dc; }
+    mark.m-risk-medium { background: #ffe9bf; }
+    mark.m-risk-low { background: #d6f2e7; }
+    mark.m-clause { background: #e4e5ff; }
+    mark.m-obl { background: #e8eef7; }
+    mark.m.active { background: #ffe27a; outline: 2px solid var(--accent); box-shadow: 0 0 0 2px #ffe27a; }
+    ins.rev-ins { background: #d6f2e7; text-decoration: none; border-bottom: 2px solid #42a786; border-radius: 3px; cursor: pointer; }
+    .result-card p.helper, .result-card p.note, .result-card p.evidence { white-space: normal; }
+    .chip-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+    .chip {
+      border: 1px solid var(--line); background: #fff; color: #4d5a71; cursor: pointer;
+      border-radius: 999px; padding: 6px 13px; font-size: 12px; font-weight: 700; font-family: inherit;
+    }
+    .chip:hover { background: #f5f7fc; }
+    .chip.accept.on { background: #e3f6ee; border-color: #42a786; color: #1f6b52; }
+    .chip.ignore.on { background: #eceff4; border-color: #9aa5b5; color: #4d5a71; }
+    .chip.flag.on { background: #fff1dc; border-color: #e9a23b; color: #8a5a0f; }
+    .chip.link { border-style: dashed; color: var(--accent); }
+    .chip:disabled, .btn:disabled { opacity: .5; cursor: not-allowed; }
+    .status-pill {
+      font-size: 10px; font-weight: 750; text-transform: uppercase; padding: 4px 8px; border-radius: 6px;
+      background: #f0f2f9; color: #66758c;
+    }
+    .status-pill.status-accepted { background: #e3f6ee; color: #1f6b52; }
+    .status-pill.status-ignored { background: #eceff4; color: #66758c; }
+    .status-pill.status-flagged { background: #fff1dc; color: #8a5a0f; }
+    .risk-card.status-ignored { opacity: .72; }
+    .comment {
+      width: 100%; min-height: 54px; margin-top: 10px; padding: 8px 10px; resize: vertical;
+      border: 1px solid #dbe2ee; border-radius: 10px; background: #fbfcff; color: var(--ink);
+      font: inherit; font-size: 12.5px; line-height: 1.5;
+    }
+    .rev-box { margin-top: 10px; padding: 10px 12px; border: 1px solid #cfe9dd; background: #f6fcf9; border-radius: 10px; }
+    .rev-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; color: #1f6b52; margin-bottom: 6px; }
+    .rev-old, .rev-new { font-size: 12.5px; line-height: 1.6; padding: 7px 9px; border-radius: 8px; margin-top: 6px; overflow-wrap: anywhere; }
+    .rev-old { background: #fff5f5; color: #7a3a40; }
+    .rev-new { background: #eaf8f1; color: #1d5c46; }
+    .rev-old span, .rev-new span { display: block; font-size: 10px; font-weight: 800; text-transform: uppercase; opacity: .7; margin-bottom: 2px; }
+    .rev-state { margin-top: 8px !important; font-size: 12px; font-weight: 700; color: #1f6b52; }
+    .linklike { border: 0; background: none; color: var(--accent); font-weight: 700; font-size: 12px; cursor: pointer; padding: 0; margin-left: 8px; font-family: inherit; }
+    .linkable.is-active, .risk-card.is-active { outline: 2px solid #c9caf7; outline-offset: 3px; border-radius: 8px; }
+    @media (max-width: 900px) {
+      .review-grid { grid-template-columns: 1fr; }
+      .source-panel { position: static; max-height: none; }
+      .source-body { max-height: 50vh; }
+    }
     @media (max-width: 600px) {
       .shell { padding: 16px; }
       header { align-items: flex-start; }
@@ -115,7 +184,7 @@
           <div class="subtitle">DOCUMENT INTELLIGENCE</div>
         </div>
       </div>
-      <div class="privacy">&#9679; Privacy-first workflow</div>
+      <div class="privacy">&#9679; Privacy-first workflow</div>
     </header>
 
     <section class="hero">
